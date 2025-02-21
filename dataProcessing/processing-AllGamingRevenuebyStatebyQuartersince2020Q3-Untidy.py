@@ -16,7 +16,7 @@ df.iloc[:, 1:] = (df.iloc[:, 1:] * 1_000_000).round(2)
 # Remove " ($M)" from column titles
 df.columns = df.columns.str.replace(r' \(\$M\)', '', regex=True)
 
-# Pivot the data to have 'Quarter' and 'Year' columns
+# Melt the data to have 'Quarter' and 'Year' columns
 df = df.melt(id_vars=['State'], var_name='Quarter_Year', value_name='Revenue')
 
 # Split 'Quarter_Year' into 'Quarter' and 'Year', considering 'CY' as well
